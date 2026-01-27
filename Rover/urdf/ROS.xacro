@@ -1,0 +1,519 @@
+<?xml version="1.0" ?>
+<robot name="ROS" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find ROS_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find ROS_description)/urdf/ROS.ros2control" />
+<xacro:include filename="$(find ROS_description)/urdf/ROS.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.0 0.0 0.43242599999999987" rpy="0 0 0"/>
+    <mass value="416.73017314454216"/>
+    <inertia ixx="9.492221" iyy="17.907954" izz="25.779491" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+  <collision name="base_box_collision">
+    <origin xyz="0 0 0.43242599999999987" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.7 0.5 0.152"/>
+    </geometry>
+    <surface>
+      <contact>
+        <ode>
+          <min_depth>0.001</min_depth>
+          <kp>1e+13</kp>
+          <kd>1.0</kd>
+        </ode>
+      </contact>
+      <friction>
+        <ode>
+          <mu>1.0</mu>
+          <mu2>1.0</mu2>
+        </ode>
+      </friction>
+    </surface>
+  </collision>
+</link>
+
+<link name="Tire_v2__1__1">
+  <inertial>
+    <origin xyz="-3.885780586188048e-16 -0.03810000000000002 -0.0007185105878094178" rpy="0 0 0"/>
+    <mass value="8.677104752089265"/>
+    <inertia ixx="0.06032" iyy="0.112527" izz="0.06032" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.3048 0.2754 -0.127626" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/Tire_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+
+    <material name="silver"/>
+  </visual>
+  
+  <collision name="Tire_v2__1__1_collision">
+  <!-- Adjust the origin to match your wheel's position -->
+    <origin xyz="0 0 0" rpy="1.5707 0 0"/>
+    <geometry>
+      <!-- Adjust radius and length to match your wheel's size -->
+      <cylinder radius="0.1269" length="0.0762" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <max_contacts>300</max_contacts>
+    <surface>
+      <contact>
+        <ode>
+          <min_depth>0.005</min_depth>
+          <kp>1e+8</kp>
+          <kd>1.0</kd>
+        </ode>
+      </contact>
+      <friction>
+        <ode>
+          <mu>1.0</mu>
+          <mu2>1.0</mu2>
+          <slip1>0.0</slip1>
+          <slip2>0.0</slip2>
+        </ode>
+      </friction>
+    </surface>
+  </collision>
+</link>
+
+<link name="Tire_v2_1">
+  <inertial>
+    <origin xyz="-3.7848861595352765e-16 -0.0635 -0.43314451058780956" rpy="0 0 0"/>
+    <mass value="8.677104752089265"/>
+    <inertia ixx="0.06032" iyy="0.112527" izz="0.06032" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.25 -0.127626" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/Tire_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+ 
+  <collision name="Tire_v2_1_collision">
+  <!-- Adjust the origin to match your wheel's position -->
+    <origin xyz="0 0 0" rpy="1.5707 0 0" />
+    <geometry>
+      <!-- Adjust radius and length to match your wheel's size -->
+      <cylinder radius="0.1269" length="0.0762" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <max_contacts>300</max_contacts>
+    <surface>
+      <contact>
+        <ode>
+          <min_depth>0.005</min_depth>
+          <kp>1e+8</kp>
+          <kd>1.0</kd>
+        </ode>
+      </contact>
+      <friction>
+        <ode>
+          <mu>1.0</mu>
+          <mu2>1.0</mu2>
+          <slip1>0.0</slip1>
+          <slip2>0.0</slip2>
+        </ode>
+      </friction>
+    </surface>
+  </collision>
+</link>
+
+<link name="Tire_v2__2__1">
+  <inertial>
+    <origin xyz="-3.885780586188048e-16 -0.0635 -0.127626" rpy="0 0 0"/>
+    <mass value="8.677104752089265"/>
+    <inertia ixx="0.06032" iyy="0.112527" izz="0.06032" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.3048 0.25 -0.127626" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/Tire_v2__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+ 
+  <collision name="Tire_v2_2_1_collision">
+  <!-- Adjust the origin to match your wheel's position -->
+    <origin xyz="0 0 0" rpy="1.5707 0 0"/>
+    <geometry>
+      <!-- Adjust radius and length to match your wheel's size -->
+      <cylinder radius="0.1269" length="0.0762" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <max_contacts>300</max_contacts>
+    <surface>
+      <contact>
+        <ode>
+          <min_depth>0.005</min_depth>
+          <kp>1e+8</kp>
+          <kd>1.0</kd>
+        </ode>
+      </contact>
+      <friction>
+        <ode>
+          <mu>1.0</mu>
+          <mu2>1.0</mu2>
+          <slip1>0.0</slip1>
+          <slip2>0.0</slip2>
+        </ode>
+      </friction>
+    </surface>
+  </collision>
+</link>
+
+<link name="sus_bot_1">
+  <inertial>
+    <origin xyz="-5.551115123125783e-17 0.012699999999999989 -0.08297428650305538" rpy="0 0 0"/>
+    <mass value="4.742657425528629"/>
+    <inertia ixx="0.012243" iyy="0.05665" izz="0.044916" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1524 0.25 -0.280026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/sus_bot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1524 0.25 -0.280026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/sus_bot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="sus_top_1">
+  <inertial>
+    <origin xyz="0.07650373441982396 -0.012699999999999989 -0.13332358399886612" rpy="0 0 0"/>
+    <mass value="6.925724353849822"/>
+    <inertia ixx="0.054998" iyy="0.191843" izz="0.13759" ixy="-0.0" iyz="-0.0" ixz="0.061981"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.25 -0.432426" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/sus_top_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.25 -0.432426" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/sus_top_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Tire_v2__1__Mirror__1">
+  <inertial>
+    <origin xyz="-5.551115123125783e-17 0.03810000000000002 5.551115123125783e-17" rpy="0 0 0"/>
+    <mass value="8.677104752089251"/>
+    <inertia ixx="0.06032" iyy="0.112527" izz="0.06032" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.3048 -0.2754 -0.127626" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/Tire_v2__1__Mirror__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  
+  <collision name="Tire_v2__1__Mirror__1_collision">
+  <!-- Adjust the origin to match your wheel's position -->
+    <origin xyz="0 0 0" rpy="1.5707 0 0"/>
+    <geometry>
+      <!-- Adjust radius and length to match your wheel's size -->
+      <cylinder radius="0.1269" length="0.0762" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <max_contacts>300</max_contacts>
+    
+    <surface>
+      <contact>
+        <ode>
+          <min_depth>0.005</min_depth>
+          <kp>1e+8</kp>
+          <kd>1.0</kd>
+        </ode>
+      </contact>
+      <friction>
+        <ode>
+          <mu>1.0</mu>
+          <mu2>1.0</mu2>
+          <slip1>0.0</slip1>
+          <slip2>0.0</slip2>
+        </ode>
+      </friction>
+    </surface>
+  </collision>
+</link>
+
+<link name="Tire_v2_Mirror__1">
+  <inertial>
+    <origin xyz="0 -0.2754 -0.127626" rpy="0 0 0"/>
+    <mass value="8.677104752089251"/>
+    <inertia ixx="0.06032" iyy="0.112527" izz="0.06032" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 -0.2754 -0.127626" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/Tire_v2_Mirror__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  
+  <collision name="Tire_v2_Mirror__1_collision">
+  <!-- Adjust the origin to match your wheel's position -->
+    <origin xyz="0 0 0" rpy="1.5707 0 0"/>
+    <geometry>
+      <!-- Adjust radius and length to match your wheel's size -->
+      <cylinder radius="0.1269" length="0.0762" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <max_contacts>300</max_contacts>
+
+    <surface>
+      <contact>
+        <ode>
+          <min_depth>0.005</min_depth>
+          <kp>1e+8</kp>
+          <kd>1.0</kd>
+        </ode>
+      </contact>
+      <friction>
+        <ode>
+          <mu>1.0</mu>
+          <mu2>1.0</mu2>
+          <slip1>0.0</slip1>
+          <slip2>0.0</slip2>
+        </ode>
+      </friction>
+    </surface>
+  </collision>
+</link>
+
+<link name="Tire_v2__2__Mirror__1">
+  <inertial>
+    <origin xyz="0.3048 -0.2754 -0.127626" rpy="0 0 0"/>
+    <mass value="8.677104752089251"/>
+    <inertia ixx="0.06032" iyy="0.112527" izz="0.06032" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.3048 -0.2754 -0.127626" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/Tire_v2__2__Mirror__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  
+  <collision name="Tire_v2__2__Mirror__1_collision">
+  <!-- Adjust the origin to match your wheel's position -->
+    <origin xyz="0 0 0" rpy="1.5707 0 0"/>
+    <geometry>
+      <!-- Adjust radius and length to match your wheel's size -->
+      <cylinder radius="0.1269" length="0.0762" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <max_contacts>300</max_contacts>
+    <surface>
+      <contact>
+        <ode>
+          <min_depth>0.005</min_depth>
+          <kp>1e+8</kp>
+          <kd>1.0</kd>
+        </ode>
+      </contact>
+      <friction>
+        <ode>
+          <mu>1.0</mu>
+          <mu2>1.0</mu2>
+          <slip1>0.0</slip1>
+          <slip2>0.0</slip2>
+        </ode>
+      </friction>
+    </surface>
+  </collision>
+</link>
+
+<link name="sus_bot_Mirror__1">
+  <inertial>
+    <origin xyz="0.0 -0.012699999999999989 -0.08297428650305536" rpy="0 0 0"/>
+    <mass value="4.742657425528629"/>
+    <inertia ixx="0.012243" iyy="0.05665" izz="0.044916" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1524 -0.25 -0.280026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/sus_bot_Mirror__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1524 -0.25 -0.280026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/sus_bot_Mirror__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="sus_top_Mirror__1">
+  <inertial>
+    <origin xyz="0.07650373441982386 0.012699999999999989 -0.13332358399886612" rpy="0 0 0"/>
+    <mass value="6.925724353849821"/>
+    <inertia ixx="0.054998" iyy="0.191843" izz="0.13759" ixy="-0.0" iyz="0.0" ixz="0.061981"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.25 -0.432426" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/sus_top_Mirror__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.25 -0.432426" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_description)/meshes/sus_top_Mirror__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+<link name="lidar_link">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.125"/>
+    <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+  </inertial>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <cylinder radius="0.0508" length="0.055"/>
+    </geometry>
+  </collision>
+
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <cylinder radius="0.0508" length="0.055"/>
+    </geometry>
+  </visual>
+</link>
+
+<joint name="lidar_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="lidar_link"/>
+  <origin xyz="0 0 0.5382" rpy="0 0 0"/>
+</joint>
+
+<link name="camera_link">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.015 0.130 0.022"/>
+    </geometry>
+  </visual>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.015 0.130 0.022"/>
+    </geometry>
+  </collision>
+
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.035"/>
+    <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+  </inertial>
+</link>
+
+<joint name="camera_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="camera_link"/>
+  <origin xyz="0.35 0 0.4324" rpy="0 0 0"/>
+</joint>
+
+<joint name="rf" type="continuous">
+  <origin xyz="0.3048 -0.0254 -0.3048" rpy="0 0 0"/>
+  <parent link="sus_top_1"/>
+  <child link="Tire_v2__1__1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rm" type="continuous">
+  <origin xyz="0.1524 0.0 -0.1524" rpy="0 0 0"/>
+  <parent link="sus_bot_1"/>
+  <child link="Tire_v2_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rb" type="continuous">
+  <origin xyz="-0.1524 0.0 -0.1524" rpy="0 0 0"/>
+  <parent link="sus_bot_1"/>
+  <child link="Tire_v2__2__1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="rs2" type="revolute">
+  <origin xyz="-0.1524 0.0 -0.1524" rpy="0 0 0"/>
+  <parent link="sus_top_1"/>
+  <child link="sus_bot_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit effort="30" velocity="1.0" lower="-0.25" upper="0.25" />
+</joint>
+
+<joint name="rs1" type="revolute">
+  <origin xyz="0.0 -0.25 0.432426" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="sus_top_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit effort="30" velocity="1.0" lower="-0.25" upper="0.25" />
+</joint>
+
+<joint name="lf" type="continuous">
+  <origin xyz="0.3048 0.0254 -0.3048" rpy="0 0 0"/>
+  <parent link="sus_top_Mirror__1"/>
+  <child link="Tire_v2__1__Mirror__1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="lm" type="continuous">
+  <origin xyz="0.1524 0.0 -0.1524" rpy="0 0 0"/>
+  <parent link="sus_bot_Mirror__1"/>
+  <child link="Tire_v2_Mirror__1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="lb" type="continuous">
+  <origin xyz="-0.1524 0.0 -0.1524" rpy="0 0 0"/>
+  <parent link="sus_bot_Mirror__1"/>
+  <child link="Tire_v2__2__Mirror__1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="ls2" type="revolute">
+  <origin xyz="-0.1524 0.0 -0.1524" rpy="0 0 0"/>
+  <parent link="sus_top_Mirror__1"/>
+  <child link="sus_bot_Mirror__1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit effort="30" velocity="1.0" lower="-0.25" upper="0.25" />
+</joint>
+
+<joint name="ls1" type="revolute">
+  <origin xyz="0.0 0.25 0.432426" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="sus_top_Mirror__1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit effort="30" velocity="1.0" lower="-0.25" upper="0.25" />
+</joint>
+
+</robot>
