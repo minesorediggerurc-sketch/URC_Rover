@@ -39,6 +39,6 @@ Under Fixed Frame choose base_link. Click add at the bottom left, scroll down an
 cd Downloads/OrbbecViewer_v1.10.27_202509260950_arm64_release
 sudo ./OrbbecViewer
 ```
-Password is 'password'
+Password is 'password'.
 Make sure camera is plugged in.  Select the cammera from the dropdown on top left if not already done.  Select which view you want (color, depth, ir left, ir right, imu, pointcloud).
 
