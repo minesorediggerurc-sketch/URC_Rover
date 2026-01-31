@@ -14,7 +14,7 @@ colcon build --symlink-install
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
-```
+
 RViz:
 (if you want the real cameras)
 ```
