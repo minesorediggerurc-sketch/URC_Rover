@@ -42,22 +42,6 @@ sudo ./OrbbecViewer
 Password is 'password'.
 Make sure camera is plugged in.  Select the cammera from the dropdown on top left if not already done.  Select which view you want (color, depth, ir left, ir right, imu, pointcloud).
 
-CMake Error at CMakeLists.txt:26 (find_package):
-  By not providing "FindPangolin.cmake" in CMAKE_MODULE_PATH this project has
-  asked CMake to find a package configuration file provided by "Pangolin",
-  but CMake did not find one.
-
-  Could not find a package configuration file provided by "Pangolin" with any
-  of the following names:
-
-    PangolinConfig.cmake
-    pangolin-config.cmake
-
-  Add the installation prefix of "Pangolin" to CMAKE_PREFIX_PATH or set
-  "Pangolin_DIR" to a directory containing one of the above files.  If
-  "Pangolin" provides a separate development package or SDK, be sure it has
-  been installed.
-
-
+sudo find /usr /usr/local -type f ( -name "PangolinConfig.cmake" -o -name "pangolin-config.cmake" -o -name "pangolinConfig.cmake" ) 2>/dev/null
 
 
