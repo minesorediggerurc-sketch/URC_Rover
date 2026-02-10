@@ -42,6 +42,6 @@ sudo ./OrbbecViewer
 Password is 'password'.
 Make sure camera is plugged in.  Select the cammera from the dropdown on top left if not already done.  Select which view you want (color, depth, ir left, ir right, imu, pointcloud).
 
-bash: syntax error near unexpected token `('
+
 
 
