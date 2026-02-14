@@ -1,6 +1,6 @@
 #### Gazebo: 
 ```
-cd ros_ws
+cd ros2_ws
 colcon build --symlink-install
 source install/setup.bash
 ros2 launch ROS_description gazebo.launch.py
@@ -10,7 +10,7 @@ The rover currently spawns inside the box on the shapes world.  To fix this, you
 #### Controller:
 New terminal:
 ```
-cd ros_ws
+cd ros2_ws
 colcon build --symlink-install
 source install/setup.bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
@@ -20,7 +20,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 #### RViz:
 (if you don't want the real cameras you can skip this part)
 ```
-cd ros_ws
+cd ros2_ws
 colcon build --symlink-install
 source install/setup.bash
 ros2 launch orbbec_camera gemini_330_series.launch.py enable_colored_point_cloud:=true
@@ -28,7 +28,7 @@ ros2 launch orbbec_camera gemini_330_series.launch.py enable_colored_point_cloud
 ```
 New Terminal: 
 ```
-cd ros_ws
+cd ros2_ws
 colcon build --symlink-install
 source install/setup.bash
 ros2 run rviz2 rviz2
