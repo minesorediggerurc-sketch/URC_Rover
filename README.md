@@ -42,6 +42,11 @@ sudo ./OrbbecViewer
 Password is 'password'.
 Make sure camera is plugged in.  Select the cammera from the dropdown on top left if not already done.  Select which view you want (color, depth, ir left, ir right, imu, pointcloud).
 
-
+```
+ros2 launch orbbec_camera gemini_330_series.launch.py \
+    depth_width:=640 depth_height:=480 depth_fps:=30 \
+    color_width:=640 color_height:=480 color_fps:=30 \
+    enable_colored_point_cloud:=true
+```
 
 
