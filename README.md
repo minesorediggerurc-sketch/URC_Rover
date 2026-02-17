@@ -48,5 +48,35 @@ ros2 launch orbbec_camera gemini_330_series.launch.py \
     color_width:=640 color_height:=480 color_fps:=30 \
     enable_colored_point_cloud:=true
 ```
+To create start OrbSlam and display point cloud through RViz complete the following:
+
+In first terminal tab:
+```
+cd ~/ros2_ws
+colcon build --symlink-install
+source install/setup.bash
+ros2 launch orbbec_camera gemini_330_series.launch.py \
+    depth_width:=640 depth_height:=480 depth_fps:=30 \
+    color_width:=640 color_height:=480 color_fps:=30 \
+    enable_colored_point_cloud:=true
+```
+
+In a new terminal tab:
+```
+cd ~/ros2_ws
+colcon build --symlink-install --packages-select orbslam3
+source install/setup.bash
+ros2 run orbslam3 rgbd     ~/ros2_ws/src/orbslam3_ros2/vocabulary/ORBvoc.txt     ~/ros2_ws/src/orbslam3_ros2/config/rgb-d/Orbbec_Gemini335.yaml     --ros-args     -r camera/rgb:=/camera/color/image_raw     -r camera/depth:=/camera/depth/image_raw
+```
+
+In a new terminal tab:
+```
+cd ~/ros2_ws
+colcon build --symlink-install
+source install/setup.bash
+ros2 run rviz2 rviz2
+```
+
+After all of this, you should be able to add "TF", "Pose", and "PointCloud2 - topic of orbslam" to be able to see OrbSlam within RViz
 
 
