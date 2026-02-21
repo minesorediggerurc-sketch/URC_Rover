@@ -79,4 +79,22 @@ ros2 run rviz2 rviz2
 
 After all of this, you should be able to add "TF", "Pose", and "PointCloud2 - topic of orbslam" to be able to see OrbSlam within RViz
 
+This is the start of Nav2 Stuff (Updated when finished; everything in cd ros_ws unless otherwise specified)
+After doing all the previous terminals for ORB_SLAM3, do the next steps
 
+New Terminal Tab:
+```
+ros2 run robot_localization ekf_node --ros-args --params-file ~/ros2_ws/src/my_robot_bringup/config/ekf2.yaml
+```
+
+New Terminal Tab:
+```
+ros2 run depthimage_to_laserscan depthimage_to_laserscan_node --ros-args -r /depth:=/camera/depth/image_raw -r /depth_camera_info:=/camera/depth/camera_info
+```
+
+New Terminal Tab:
+```
+ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 camera_link base_link
+```
+
+New Terminal Tab:
