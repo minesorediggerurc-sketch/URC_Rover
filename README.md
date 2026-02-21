@@ -98,3 +98,8 @@ ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 camera_link base_link
 ```
 
 New Terminal Tab:
+```
+ros2 launch nav2_bringup navigation_launch.py \
+  params_file:=/home/urc/ros2_ws/src/my_robot_bringup/params/nav2_params.yaml \
+  use_sim_time:=False
+```
