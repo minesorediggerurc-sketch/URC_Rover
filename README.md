@@ -110,3 +110,7 @@ ros2 launch nav2_bringup navigation_launch.py \
   params_file:=/home/urc/ros2_ws/src/my_robot_bringup/params/nav2_params.yaml \
   use_sim_time:=False
 ```
+New Terminal Tab:
+```
+ros2 run v4l2_camera v4l2_camera_node --ros-args -p video_device:=/dev/video0
+```
