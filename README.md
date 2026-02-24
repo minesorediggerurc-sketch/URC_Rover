@@ -1,7 +1,7 @@
 Any issues with colcon build run the following:
 ```
 cd ros2_ws
-rm -rf bulid install log
+rm -rf build install log
 colcon build
 ```
 
