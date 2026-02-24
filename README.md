@@ -110,16 +110,26 @@ ros2 launch nav2_bringup navigation_launch.py \
   params_file:=/home/urc/ros2_ws/src/my_robot_bringup/params/nav2_params.yaml \
   use_sim_time:=False
 ```
-New Terminal Tab:
-```
-ros2 run v4l2_camera v4l2_camera_node --ros-args -p video_device:=/dev/video0
-```
+
 
 
 ### Working Code
 First terminal
 Note: For the tf2_ros might be nice to create new terminal window entirely
 Note: All done inside cd ros2_ws
+```
+ros2 launch orbbec_camera gemini_330_series.launch.py \
+    depth_width:=640 depth_height:=480 depth_fps:=30 \
+    color_width:=640 color_height:=480 color_fps:=30 \
+    enable_colored_point_cloud:=true
+```
+
+New Terminal Tab:
+```
+ros2 run v4l2_camera v4l2_camera_node --ros-args -p video_device:=/dev/video0
+```
+
+Next Terminal Tab:
 ```
 ros2 run depthimage_to_laserscan depthimage_to_laserscan_node --ros-args -p depth_frame_id:=camera_depth_frame -r /depth:=/camera/depth/image_raw -r /depth_camera_info:=/camera/depth/camera_info -r /scan:=/scan
 ```
