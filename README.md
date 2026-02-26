@@ -132,6 +132,10 @@ New Terminal Tab:
 ```
 ros2 run my_object_detector detector
 ```
+New Terminal Tab:
+```
+ros2 run rover_yolo yolo_node
+```
 
 Next Terminal Tab:
 ```
