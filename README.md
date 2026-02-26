@@ -171,3 +171,18 @@ Next terminal (RViz)
 ```
 ros2 run rviz2 rviz2
 ```
+
+To get GNSS going use:
+```
+os2 run ublox_gps ublox_gps_node --ros-args   -p device:="/dev/ttyACM0"   -p publish.esf:=true   -p publish.hnr:=true   -p publish.nav.pvt:=true   -r /fix:=/gps/fix
+```
+In a seperate terminal: 
+```
+ros2 topic echo /gps/fix
+```
+should show longitude and lattitude data being published. 
+
+\\ Ideally the following would set a GPS goal for the rover, but it doesn't rn :/
+```
+ros2 action send_goal /follow_gps_waypoints nav2_msgs/action/FollowGPSWaypoints "{gps_poses: [{header: {frame_id: 'map'}, position: {latitude: 40.015, longitude: -105.2705}}]}"
+```
