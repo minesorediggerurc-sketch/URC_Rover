@@ -1,3 +1,10 @@
+To remove Wayland from Jetson Orin Nano to use X11 (headless) do the following:
+```
+sudo nano /etc/gdm3/custom.conf
+```
+Then uncomment the WaylandEnable=false
+
+
 Any issues with colcon build run the following:
 ```
 cd ros2_ws
